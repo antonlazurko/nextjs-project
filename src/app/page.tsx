@@ -1,13 +1,18 @@
-import StatusLabel, { Status } from "@/components/label/status-label";
+import AddCompanyButton from "@/app/components/add-company-button";
+import ClientComponent from "@/app/components/client-component";
+import ServerComponent from "@/app/components/server-component";
+import ServerComponentCopy from "@/app/components/server-component-copy";
 
 export default function Home() {
+
   return (
       <main>
         <h1 className="text-xl">Home page</h1>
-        <StatusLabel status={Status.Active}>Active</StatusLabel>
-        <StatusLabel status={Status.NotActive}>Not Active</StatusLabel>
-        <StatusLabel status={Status.Pending}>Pending</StatusLabel>
-        <StatusLabel status={Status.Suspended}>Suspended</StatusLabel>
+        <AddCompanyButton />
+        <ClientComponent>
+          <ServerComponentCopy />
+        </ClientComponent>
+        <ServerComponent />
       </main>
   );
 }
