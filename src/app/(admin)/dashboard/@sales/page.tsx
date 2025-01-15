@@ -4,22 +4,12 @@ import SummaryTable from '@/app/components/summary-table';
 import SummaryTableHeader from '@/app/components/summary-table-header';
 import SummaryTableCell from '@/app/components/summary-table-cell';
 import DashboardCard from '@/app/components/dashboard-card';
-import ErrorButton from '@/app/components/error-button';
 
 export default async function Page() {
-  const data: {
-    companyId: number;
-    companyTitle: string;
-    sold: number;
-    income: number;
-  }[] = await new Promise(res => {
-    setTimeout(() => {
-      res(getSummarySales());
-    }, 4000);
-  });
+  const data = await getSummarySales();
 
   return (
-    <DashboardCard label={<>Sales details<ErrorButton /></>}>
+    <DashboardCard label="Sales details">
       <SummaryTable
         headers={
           <>
