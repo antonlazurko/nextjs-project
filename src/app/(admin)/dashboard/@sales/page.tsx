@@ -6,10 +6,13 @@ import SummaryTableCell from '@/app/components/summary-table-cell';
 import DashboardCard from '@/app/components/dashboard-card';
 import ErrorButton from '@/app/components/error-button';
 
-export interface PageProps {}
-
-export default async function Page({}: PageProps) {
-  const data = await new Promise(res => {
+export default async function Page() {
+  const data: {
+    companyId: number;
+    companyTitle: string;
+    sold: number;
+    income: number;
+  }[] = await new Promise(res => {
     setTimeout(() => {
       res(getSummarySales());
     }, 4000);

@@ -3,8 +3,6 @@ import { getSummaryStats } from '@/lib/api';
 import StatCard, { StatCardType } from '@/app/components/stat-card';
 import Link from 'next/link';
 
-export interface PageProps {}
-
 const labelByStat = {
   promotions: 'Total promotions',
   categories: 'Total categories',
@@ -12,7 +10,7 @@ const labelByStat = {
   activeCompanies: 'Total active companies',
 };
 
-export default async function Page({}: PageProps) {
+export default async function Page() {
   const data = await getSummaryStats();
 
   return (
